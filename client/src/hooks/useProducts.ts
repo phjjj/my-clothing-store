@@ -21,7 +21,7 @@ export const useProducts = () => {
   }
 
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery(
-    ["products", location.search],
+    ["products", location.search.split("?")[1] ? location.search.split("?")[1] : "all"],
     // pageParam의 초기값은 1
     ({ pageParam = 1 }) => getProducts({ pageParam }),
     {
@@ -32,6 +32,7 @@ export const useProducts = () => {
 
         return isLastPage ? null : lastPage.pagination.currentPage + 1
       },
+      staleTime: 1000 * 60 * 5,
     }
   )
   const products = data ? data.pages.flatMap((page) => page.products) : []

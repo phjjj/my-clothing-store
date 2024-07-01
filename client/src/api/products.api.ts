@@ -8,7 +8,7 @@ interface FetchBooksParams {
   limit: number
 }
 
-interface FetchProductResponse {
+export interface FetchProductResponse {
   products: Product[]
   pagination: Pagination
 }
@@ -25,5 +25,14 @@ export const fetchProducts = async (params: FetchBooksParams) => {
         currentPage: 1,
       },
     }
+  }
+}
+
+export const fetchProduct = async (id: number) => {
+  try {
+    const response = await httpclient.get<Product>(`/products/${id}`)
+    return response.data
+  } catch (error) {
+    return
   }
 }

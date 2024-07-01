@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import { ReactQueryDevtools } from "react-query/devtools"
 import { QueryClient, QueryClientProvider } from "react-query"
+import ProductDetail from "./pages/ProductDetail"
 
 function App() {
   const routerList = [
@@ -22,6 +23,14 @@ function App() {
     {
       path: "/signup",
       element: <Signup />,
+    },
+    {
+      path: "/products/:category_id/:id",
+      element: <ProductDetail />,
+    },
+    {
+      path: "/products/:id",
+      element: <ProductDetail />,
     },
   ]
 

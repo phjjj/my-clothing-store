@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import ProductsList from "../components/Products/ProductsList"
-import ProductsFilter from "../components/Products/ProductsFilter"
+import ProductsList from "../components/products/ProductsList"
+import ProductsFilter from "../components/products/ProductsFilter"
 import { useProducts } from "../hooks/useProducts"
 import Button from "../components/common/Button"
-import Loading from "../components/Products/Loading"
+import Loading from "../components/products/Loading"
 
 function Home() {
   const { products, fetchNextPage, hasNextPage, isEmpty, isLoading } = useProducts()
